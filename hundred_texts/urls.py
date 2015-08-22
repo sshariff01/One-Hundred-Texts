@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from rtropo.views import message_received
 
 
 urlpatterns = [
@@ -17,4 +18,9 @@ urlpatterns = [
 
     # Third party URLs
     url(r'^selectable/', include('selectable.urls')),
+
+    # Tropo callback URL
+    url(r'^tropo/',
+        message_received,
+        kwargs={'backend_name': 'my-tropo-backend'}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -190,6 +190,7 @@ INSTALLED_APPS = (
     # External apps
     "django_tables2",
     "selectable",
+    "rtropo",
     # RapidSMS
     "crowdfund",
     "rapidsms",
@@ -207,6 +208,15 @@ INSTALLED_APPS = (
 INSTALLED_BACKENDS = {
     "message_tester": {
         "ENGINE": "rapidsms.backends.database.DatabaseBackend",
+    },
+    "my-tropo-backend": {
+        "ENGINE": "rtropo.outgoing.TropoBackend",
+        'config': {
+            # Tropo application's outbound token for messaging
+            'messaging_token': '0cfbb5aed7bc7444b25053d2e99161d7b043846196fa79da7ecdd490d6e1a2a92e862d4198ed4b492ea7ad4a',
+            # Tropo application's voice/messaging phone number (including country code)
+            'number': '+1-562-213-9818',
+        },
     },
 }
 
