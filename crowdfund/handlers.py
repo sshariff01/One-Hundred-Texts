@@ -11,14 +11,17 @@ class ResultsHandler(KeywordHandler):
         with no arguments"""
         # Build the response message, one part per choice
         results = []
-        for cause in Cause.objects.all()[:5]:
-            part = "%s: %d" % (cause.headline, cause.supporters)
-            results.append(part)
-        # Combine the results into the response, with a semicolon after each
-        msg = "\n ".join(results)
-        msg += "\n... For information on the progress of a specific cause," \
-               "send RESULTS <cause_name> \n\n " \
-               "Send HELP for a list of commands to use on this service."
+        causes = Cause.objects.all()[:5]
+        msg = ""
+        if causes:
+            for cause in causes:
+                part = "%s: %s" % (cause.headline, cause.supporters)
+                results.append(part)
+            # Combine the results into the response, with a semicolon after each
+            msg = "; ".join(results) + ". "
+        msg += "For information on the progress of a specific cause, " \
+           "send RESULTS <cause_name>. \n\n " \
+           "Send HELP for a list of commands to use on this service."
         # Respond
         self.respond(msg)
 
