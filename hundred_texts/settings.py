@@ -212,6 +212,12 @@ INSTALLED_BACKENDS = {
 LOGIN_REDIRECT_URL = '/'
 
 RAPIDSMS_HANDLERS = (
+    'hundred_texts.myhandlers.HelpHandler',
     # 'rapidsms.contrib.echo.handlers.echo.EchoHandler',
     # 'rapidsms.contrib.echo.handlers.ping.PingHandler',
 )
+
+DEFAULT_RESPONSE = "Sorry, %(project_name)s could not understand your \
+    message.  Send HELP to get a list of valid commands."
+
+PROJECT_NAME = "100Texts"
