@@ -191,7 +191,7 @@ INSTALLED_APPS = (
     "django_tables2",
     "selectable",
     # RapidSMS
-    "heartbeat",
+    "crowdfund",
     "rapidsms",
     "rapidsms.backends.database",
     "rapidsms.contrib.handlers",
@@ -200,6 +200,7 @@ INSTALLED_APPS = (
     "rapidsms.contrib.messaging",
     "rapidsms.contrib.registration",
     # "rapidsms.contrib.echo",
+    "heartbeat"
     "rapidsms.contrib.default",  # Must be last
 )
 
