@@ -233,4 +233,18 @@ RAPIDSMS_HANDLERS = (
 DEFAULT_RESPONSE = "Sorry, %(project_name)s could not understand your \
     message.  Send HELP to get a list of valid commands."
 
-PROJECT_NAME = "100Texts"
+PROJECT_NAME = "101Texts"
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
