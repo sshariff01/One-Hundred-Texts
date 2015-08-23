@@ -154,9 +154,9 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'console': {
-            'level':'INFO',
-            'class':'logging.StreamHandler',
-            'strm': sys.stdout,
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
         },
         'file': {
             'level': 'DEBUG',
